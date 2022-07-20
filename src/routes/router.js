@@ -6,7 +6,7 @@ const uuid = require("uuid");
 
 const db = require("../../lib/db.js");
 const userMiddleware = require("../middleware/users.js");
-const {validateRegister} = require("../middleware/users");
+const validateRegister = require("../middleware/users");
 const { hash } = require("bcryptjs");
 
 // routes/router.js
