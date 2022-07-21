@@ -40,13 +40,13 @@ module.exports = {
     try{
         const authHeader = req.headers.authorization;
         const token = authHeader.split(' ')[1];
-        const decoded = jwt.verify(token, 'SECERTKEY');
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
         req.userData = decoded;
         next();
     }
     catch(err) {
     return req.status(400).send({
-        message : "your session is not valid",
+        message : "유효하지 않은 토큰입니다",
         });
     }
   },
