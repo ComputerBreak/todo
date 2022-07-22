@@ -109,7 +109,7 @@ authRouter.post('/login', (req, res, next) => {
                 msg: '로그인 성공, 토큰이 발급되었습니다',
                 token,
                 // registerd: result[0].registerd,
-                last_login: result[0].last_login
+                //last_login: result[0].last_login
                 
                 //user: result[0],
                 
@@ -123,11 +123,21 @@ authRouter.post('/login', (req, res, next) => {
       }
     );
   });
+
 // localhost:3000/api/secret-route
 authRouter.get('/secret-route', userMiddleware.isLoggedIn, (req, res, next) => {
   console.log(req.userData);
   res.send("this is secret content");
     
 });
+
+const todoRouther = express.Router();
+
+todoRouther.post('/todo/add', (req, res, next) =>
+{
+  db.query(
+    
+  )
+})
 
 module.exports = authRouter;
