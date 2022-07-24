@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 const db = require("../../lib/db.js");
 const tokenCheck = require("../middleware/token_validation");
 const {isLoggedIn} = require("../middleware/token_validation");
-
+//gg
 const tokenRouter = express.Router();
 tokenRouter.get('/조회만들까', tokenCheck.isLoggedIn, (req, res, next) => {
     console.log(req.userData);
