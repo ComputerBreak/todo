@@ -16,3 +16,9 @@ isLoggedIn: (req, res, next) => {
     } next();
   } 
 };
+ 
+// if (!req.body.plan || req.body.id.plan < 1) {
+//     return res.status(400).send({
+//       msg: 'Please enter a id with min. 3 chars'
+//     }); 
+//   }
