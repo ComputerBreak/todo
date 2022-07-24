@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 module.exports = {
   validateRegister: (req, res, next) => {
 
-    if (!req.body.id || req.body.id < 3) {
+    if (!req.body.id || req.body.id.length < 3) {
       return res.status(400).send({
         msg: 'Please enter a id with min. 3 chars'
       }); 
@@ -33,21 +33,9 @@ module.exports = {
         msg: 'Both passwords must match'
       });
     }
-
     next();
-  },
-  isLoggedIn: (req, res, next) => {
-    try{
-        const authHeader = req.headers.authorization;
-        const token = authHeader.split(' ')[1];
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        req.userData = decoded;
-        next();
-    }
-    catch(err) {
-    return req.status(400).send({
-        message : "유효하지 않은 토큰입니다",
-        });
-    }
+
+  
   },
 };
+ 
