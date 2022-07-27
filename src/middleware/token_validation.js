@@ -7,6 +7,7 @@ isLoggedIn: (req, res, next) => {
         const token = authHeader.split(' ')[1];
         const decoded = jwt.verify(token, 'SECRETKEY');
         req.userData = decoded;
+        console.log("user입니다");
         next();
     }
     catch(err) {
