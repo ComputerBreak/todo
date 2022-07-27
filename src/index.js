@@ -4,11 +4,11 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const PORT = process.env.PORT || 3030;
 
-app.use(express.json())
+app.use(express.json());
 
-const authRouter = require("./routes/router.js")
+const authRouter = require("./routes/router.js");
 const loginRouter = require("./routes/login.js");
-const tokenRouter = require("./routes/token");
+const tokenRouter = require("./routes/todo/work.js");
 
 
 app.use('/', authRouter);
